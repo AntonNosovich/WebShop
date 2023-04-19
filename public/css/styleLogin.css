@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  color: black;
+}
+
+.body {
+  margin: 50px;
+}
+
+.w1 {
+  background-color: rgba(167, 167, 167, 0.15);
+  margin: 0 auto;
+  padding: 40px 0;
+  border-radius: 7px;
+  width: 360px;
+  -webkit-box-shadow: 0 0 4px;
+          box-shadow: 0 0 4px;
+}
+form {
+    background-color: rgba(167, 167, 167, 0.15);
+    margin: 0 auto;
+    padding: 40px 0;
+    border-radius: 7px;
+    width: 360px;
+    -webkit-box-shadow: 0 0 4px;
+    box-shadow: 0 0 4px;
+}
+
+.error {
+  color: #ff4800;
+  display: block;
+  margin: 5px 0 0px 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+}
+.text-red-500 {
+    color: #ff4800;
+    display: block;
+    margin: 5px 0 0px 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+}
+.email {
+  text-align: center;
+}
+
+.email__txt {
+  font-size: 24px;
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  margin: 0 0 5px 40px;
+}
+
+.email__input {
+  width: 268px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  padding: 0 3px 0 10px;
+}
+
+.email__input:focus {
+  border: 1px solid rgba(255, 180, 5, 0.876);
+}
+
+.password {
+  text-align: center;
+  margin: 24px 0 0 0;
+}
+
+.password__txt {
+  font-size: 24px;
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  margin: 0 0 5px 40px;
+}
+
+.password__input {
+  width: 268px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  padding: 0 3px 0 10px;
+}
+
+.password__input:focus {
+  border: 1px solid rgba(255, 180, 5, 0.876);
+}
+
+.action__check {
+  margin: 18px 0 0 40px;
+  cursor: pointer;
+}
+
+.action__txt {
+  font-size: 14px;
+}
+
+.action__btn1 {
+  width: 288px;
+  height: 34px;
+  background-color: rgba(32, 32, 34, 0.863);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  margin: 24px 0 24px 0;
+  text-transform: uppercase;
+}
+
+.action__btn:hover {
+  background-color: #202022;
+}
+
+.action__btn:active {
+    color: #e83e8c;
+}
+
+.action__create-account {
+  margin: 0px 0 0px 40px;
+  color: #e83e8c;
+}
+
+.action__create-account:hover {
+    color: #e83e8c;
+}
+/*# sourceMappingURL=styleLogin.css.map */
