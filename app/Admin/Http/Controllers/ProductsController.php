@@ -2,14 +2,13 @@
 namespace App\Admin\Http\Controllers;
 
 use App\Admin\Actions\ProductAction;
-use App\Admin\Http\DataTransferObjects\CreateProductData;
 use App\Http\Controllers\Frontend\Requests\UpdateProductRequest;
+use App\Models\Advertising;
 use App\Models\ClientMenu;
 use App\Models\Product;
 use App\Http\Controllers\Frontend\Requests\ProductRequest;
 use Illuminate\Routing\Controller;
-use Spatie\Permission\Models\Role;
-use DB;
+
 
 
 
@@ -79,7 +78,11 @@ class ProductsController extends Controller{
         $latestProduct = $action->getLatestProduct();
         $topProduct =$action->getTopProducts();
 
-        return view('frontend.product.main')->with(compact('latestProduct','topProduct'));
+        $advertising = Advertising::where('category_id',0)
+            ->where('is_active',true)
+            ->first();
+
+        return view('frontend.product.main')->with(compact('advertising','latestProduct','topProduct'));
     }
 
     public function productCategory(ProductAction $action,  $id)
