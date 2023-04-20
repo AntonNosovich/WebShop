@@ -29,4 +29,8 @@ class Advertising extends Model
     {
         return $this->belongsTo(Item::class);
     }
+    public function childitem()
+    {
+        return $this->belongsTo(Item::class,'child_item_id','id');
+    }
 }
