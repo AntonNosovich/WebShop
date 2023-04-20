@@ -3,42 +3,26 @@
     <!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img/bg.jpg">
+            @foreach($advertising->images as $img)
+
+                <div class="hs-item set-bg" data-setbg="{{asset('/storage/'.$img->url)}}">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 text-white">
-                            <span>New Arrivals</span>
-                            <h2>denim jackets</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                            <h2>{{$advertising->item->product->name}}</h2>
+                            <p>{{$advertising->item->product->description}} </p>
                             <a href="#" class="site-btn sb-line">DISCOVER</a>
                             <a href="#" class="site-btn sb-white">ADD TO CART</a>
                         </div>
                     </div>
                     <div class="offer-card text-white">
                         <span>from</span>
-                        <h2>$29</h2>
+                        <h2>${{$advertising->item->sale_price}}</h2>
                         <p>SHOP NOW</p>
                     </div>
                 </div>
             </div>
-            <div class="hs-item set-bg" data-setbg="img/bg-2.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-7 text-white">
-                            <span>New Arrivals</span>
-                            <h2>denim jackets</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                            <a href="#" class="site-btn sb-line">DISCOVER</a>
-                            <a href="#" class="site-btn sb-white">ADD TO CART</a>
-                        </div>
-                    </div>
-                    <div class="offer-card text-white">
-                        <span>from</span>
-                        <h2>$29</h2>
-                        <p>SHOP NOW</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="container">
             <div class="slide-num-holder" id="snh-1"></div>
@@ -151,15 +135,19 @@
     <!-- Product filter section end -->
 
     <!-- Banner section -->
+   @if($advertising->child_img != null)
     <section class="banner-section">
         <div class="container">
-            <div class="banner set-bg" data-setbg="img/banner-bg.jpg">
+            <div class="banner set-bg" data-setbg="{{asset('/storage/'.$advertising->child_img)}}">
                 <div class="tag-new">NEW</div>
                 <span>New Arrivals</span>
-                <h2>STRIPED SHIRTS</h2>
+                @if($advertising->child_item_id != 0)
+                <h2>{{$advertising->childItem->product->name}}</h2>
                 <a href="#" class="site-btn">SHOP NOW</a>
+                @endif
             </div>
         </div>
     </section>
+    @endif
     <!-- Banner section end  -->
 @endsection
