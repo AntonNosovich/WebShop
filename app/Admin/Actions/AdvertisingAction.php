@@ -13,7 +13,6 @@ class AdvertisingAction
 
     public function __construct(private AdvertisingRepository $repository)
     {
-//test kod
     }
 
     public function fronthandle():Collection

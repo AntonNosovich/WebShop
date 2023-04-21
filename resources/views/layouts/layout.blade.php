@@ -89,18 +89,17 @@
                             <span class="new">New</span>
                         @endif
                     </a>
-                    @if($tool->child != null)
+                    @if ($tool->child == null)
+                </li>
+                @if($tool->child != null)
                             <ul class="sub-menu">
                             @foreach($tool->child as $item)
                                     <li><a href="{{$item->slag}}">{{$item->name}}</a></li>
                                 @endforeach
                             </ul>
-                            @endif
                     </li>
+                    @endif
                 @endforeach
-                </li>
-
-{{--                <li><a href="#">Blog</a></li>--}}
             </ul>
         </div>
     </nav>
