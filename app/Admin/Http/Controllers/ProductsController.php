@@ -1,6 +1,7 @@
 <?php
 namespace App\Admin\Http\Controllers;
 
+use App\Admin\Actions\AdvertisingAction;
 use App\Admin\Actions\ProductAction;
 use App\Http\Controllers\Frontend\Requests\UpdateProductRequest;
 use App\Models\Advertising;
@@ -76,23 +77,41 @@ class ProductsController extends Controller{
     public function frontendIndex(ProductAction $action)
     {
         $latestProduct = $action->getLatestProduct();
-        $topProduct =$action->getTopProducts();
+        $Product =$action->getTopProducts();
 
         $advertising = Advertising::where('category_id',0)
             ->where('is_active',true)
             ->first();
 
-        return view('frontend.product.main')->with(compact('advertising','latestProduct','topProduct'));
+        return view('frontend.product.main')->with(compact('advertising','latestProduct','Product'));
     }
 
-    public function productCategory(ProductAction $action,  $id)
+    public function productCategory(ProductAction $action,  $id,AdvertisingAction $actionadvertising)
     {
         $category = ClientMenu::find($id);
         $latestProduct = $action->getLatestProduct();
-        $categoryProduct = $action->getCategoryProducts($category);
+        $Product = $action->getCategoryProducts($category);
+        $advertising = $actionadvertising->getCategoryAdvertising($category);
 
-        return view('frontend.product.maincategory')->with(compact('latestProduct','categoryProduct'));
-
+        return view('frontend.product.main')->with(compact('latestProduct','Product','advertising'));
     }
+
+    public function indexCategoryProduct($id,ProductAction $action){
+
+        $category = ClientMenu::find($id);
+        $products = $action->getCategoryProducts($category);
+        $size = $action->getSize($category);
+        $minMax =$action->extremum($products);
+
+        return view('frontend.product.category')->with(compact('category','products','size','minMax'));
+    }
+
+    public function showProduct($id){
+
+
+
+        return view('frontend.product.show');
+    }
+
 }
 
