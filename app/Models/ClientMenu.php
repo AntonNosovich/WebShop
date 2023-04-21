@@ -36,7 +36,7 @@ class ClientMenu extends Model
 
      public function advertising()
      {
-         return $this->hasOne(Advertising::class);
+         return $this->hasOne(Advertising::class,'category_id','id');
      }
 
 }
