@@ -60,15 +60,6 @@
                     <p class="text-red-500">{{$message}}</p>
                     @enderror
                 </div>
-                <div class="form__inputrow">
-                    <label class="form__label" for="">URL:</label>
-
-                    <input class="form__input"  value="{{$clientMenu->slag ?? Request::old('slag')}}" type="text" name="slag" placeholder="input URL">
-
-                    @error('URL')
-                    <p class="text-red-500">{{$message}}</p>
-                    @enderror
-                </div>
 
                     <div class="form__inputrow">
                     <label class="form__label" for="">Active:</label>

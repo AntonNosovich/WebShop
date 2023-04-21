@@ -15,14 +15,14 @@
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/flaticon.css"/>
-    <link rel="stylesheet" href="css/slicknav.min.css"/>
-    <link rel="stylesheet" href="css/jquery-ui.min.css"/>
-    <link rel="stylesheet" href="css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="css/animate.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 
 
     <!--[if lt IE 9]>
@@ -84,21 +84,21 @@
             <!-- menu -->
             <ul class="main-menu">
                 @foreach($tools as $tool)
-                <li><a href="{{$tool->slag}}">{{$tool->name}}
+                <li><a href="{{route('category',$tool->id)}}">{{$tool->name}}
                        @if($tool->is_new == 1)
                             <span class="new">New</span>
                         @endif
                     </a>
-                    @if ($tool->child == null)
-                </li>
-                @if($tool->child != null)
-                            <ul class="sub-menu">
-                            @foreach($tool->child as $item)
-                                    <li><a href="{{$item->slag}}">{{$item->name}}</a></li>
-                                @endforeach
+
+                    @foreach($tool->child as $item)
+                    @if($item)
+                        <ul class="sub-menu">
+                                    <li><a href="{{route('category',$item->id)}}">{{$item->name}}</a></li>
                             </ul>
-                    </li>
-                    @endif
+                        @endif
+                    @endforeach
+
+                </li>
                 @endforeach
             </ul>
         </div>
@@ -209,14 +209,14 @@
 
 
 <!--====== Javascripts & Jquery ======-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slicknav.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/main.js"></script>
+<script src={{asset('js/jquery-3.2.1.min.js')}}></script>
+<script src={{asset('js/bootstrap.min.js')}}></script>
+<script src={{asset('js/jquery.slicknav.min.js')}}></script>
+<script src={{asset('js/owl.carousel.min.js')}}></script>
+<script src={{asset('js/jquery.nicescroll.min.js')}}></script>
+<script src={{asset('js/jquery.zoom.min.js')}}></script>
+<script src={{asset('js/jquery-ui.min.js')}}></script>
+<script src={{asset('js/main.js')}}></script>
 
 </body>
 </html>

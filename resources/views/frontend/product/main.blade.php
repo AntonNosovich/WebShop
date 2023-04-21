@@ -39,7 +39,7 @@
                 <div class="col-md-4 p-0 feature">
                     <div class="feature-inner">
                         <div class="feature-icon">
-                            <img src="img/icons/1.png" alt="#">
+                            <img src="{{asset('img/icons/1.png')}}" alt="#">
                         </div>
                         <h2>Fast Secure Payments</h2>
                     </div>
@@ -47,7 +47,7 @@
                 <div class="col-md-4 p-0 feature">
                     <div class="feature-inner">
                         <div class="feature-icon">
-                            <img src="img/icons/2.png" alt="#">
+                            <img src="{{asset('img/icons/2.png')}}" alt="#">
                         </div>
                         <h2>Premium Products</h2>
                     </div>
@@ -55,7 +55,7 @@
                 <div class="col-md-4 p-0 feature">
                     <div class="feature-inner">
                         <div class="feature-icon">
-                            <img src="img/icons/3.png" alt="#">
+                            <img src="{{asset('img/icons/3.png')}}" alt="#">
                         </div>
                         <h2>Free & fast Delivery</h2>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="pi-pic">
                         <img src="{{asset('/storage/'.$item->images->first()->url)}}" alt="">
                         <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="{{route('showProduct',$item->items->first()->id)}}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                         </div>
                     </div>
@@ -109,13 +109,13 @@
                 @endforeach
             </ul>
             <div class="row">
-                    @foreach($topProduct as $product)
+                    @foreach($Product as $product)
                         <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
                             <img src="{{asset('/storage/'.$product->images->first()->url)}}" alt="">
                             <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                                <a href="{{route('showProduct',$product->items->first()->id)}}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                             </div>
                         </div>
