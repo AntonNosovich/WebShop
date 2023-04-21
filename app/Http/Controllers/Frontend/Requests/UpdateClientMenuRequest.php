@@ -24,10 +24,7 @@ class UpdateClientMenuRequest extends FormRequest
                 'min:3',
                 'max:60',
                 'unique:client_menu,name,'.$this->client_menu->id.',id',            ],
-            'slag' => [
-                'required',
-                'string'
-            ],
+
         ];
     }
 }
