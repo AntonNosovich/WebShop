@@ -42,3 +42,5 @@ Route::middleware(['guest','web'])->group(function() {
 Route::get('/main',[ProductsController::class,'frontendIndex'])->name('main');
 
 Route::get('/main/{client_menu}',[ProductsController::class,'productCategory'])->name('productCategory');
+Route::get('/category/{client_menu}',[ProductsController::class,'indexCategoryProduct'])->name('category');
+Route::get('/product/{item}',[ProductsController::class,'showProduct'])->name('showProduct');
