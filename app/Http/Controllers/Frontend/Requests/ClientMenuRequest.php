@@ -24,10 +24,6 @@ class ClientMenuRequest extends FormRequest
                 'max:60',
                 'unique:'.ClientMenu::class,
             ],
-            'slag' => [
-                'required',
-                'string'
-            ],
         ];
     }
 }
