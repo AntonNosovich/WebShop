@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\Requests\AdvertisingRequest;
 use App\Http\Controllers\Frontend\Requests\UpdateAdvertisingRequest;
 use App\Models\AdverestingImage;
 use App\Models\Advertising;
+use App\Models\ClientMenu;
 
 class AdvertisingRepository
 {
@@ -67,4 +68,16 @@ class AdvertisingRepository
 
        return $advertising;
    }
+
+    public function getCategoryAdvertising(ClientMenu $category):Advertising
+    {
+        $advertising = $category->advertising;
+
+        if ($advertising == null ||  $advertising->is_active == 0){
+            $advertising = Advertising::where('category_id',0)
+                ->where('is_active',true)
+                ->first();        }
+
+        return $advertising;
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Admin\Actions;
 use App\Http\Controllers\Frontend\Requests\AdvertisingRequest;
 use App\Http\Controllers\Frontend\Requests\UpdateAdvertisingRequest;
 use App\Models\Advertising;
+use App\Models\ClientMenu;
 use App\Repositories\AdvertisingRepository;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -34,5 +35,10 @@ class AdvertisingAction
     public function update(UpdateAdvertisingRequest $request, Advertising $advertising):Advertising
     {
         return $this->repository->update($request, $advertising);
+    }
+
+    public function getCategoryAdvertising(ClientMenu $category):Advertising
+    {
+        return $this->repository->getCategoryAdvertising($category);
     }
 }
