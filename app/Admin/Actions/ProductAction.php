@@ -49,4 +49,14 @@ class ProductAction
     {
         return $this->repository->productOfCategory($category);
     }
+
+    public function getSize(ClientMenu $category)
+    {
+        return $this->repository->getSize($category);
+    }
+
+    public function extremum($products)
+    {
+        return $this->repository->getMinMax($products);
+    }
 }

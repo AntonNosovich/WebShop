@@ -114,4 +114,42 @@ class ProductRepository
 
            return $products;
     }
+
+    public function getSize(ClientMenu $category)
+    {
+        $products = $category->products;
+        $size =[];
+
+        foreach ($products as $product)
+        {
+           foreach ($product->items as $item)
+           {
+                array_push($size,$item->size);
+
+           }
+        }
+        return array_unique($size);
+    }
+
+    public function getMinMax( $products)
+    {
+        $min = $products->first()->items->first()->sale_price;
+        $max = 0;
+        foreach ($products as $product ){
+
+            foreach($product->items as $item ){
+
+                if( $max<$item->sale_price) $max = $item->sale_price;
+
+                if ($min>$item->sale_price) $min = $item->sale_price;
+            }
+
+        }
+        return array(
+            'min' => $min,
+            'max' => $max
+        );
+
+
+    }
 }
