@@ -11,7 +11,7 @@
                         <div class="col-xl-6 col-lg-7 text-white">
                             <h2>{{$advertising->item->product->name}}</h2>
                             <p>{{$advertising->item->product->description}} </p>
-                            <a href="#" class="site-btn sb-line">DISCOVER</a>
+                            <a href="{{route('showProduct',$advertising->item->id)}}" class="site-btn sb-line">DISCOVER</a>
                             <a href="#" class="site-btn sb-white">ADD TO CART</a>
                         </div>
                     </div>
@@ -73,19 +73,18 @@
             </div>
             <div class="product-slider owl-carousel">
                 @foreach( $latestProduct as $item)
-                <div class="product-item">
+                    <a href="{{route('showProduct',$item->items->first()->id)}}">
+                    <div class="product-item">
+
                     <div class="pi-pic">
                         <img src="{{asset('/storage/'.$item->images->first()->url)}}" alt="">
-                        <div class="pi-links">
-                            <a href="{{route('showProduct',$item->items->first()->id)}}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
                     </div>
                     <div class="pi-text">
                         <h6>${{$item->price}}</h6>
                         <p>{{$item->name}} </p>
                     </div>
                 </div>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -112,17 +111,17 @@
                     @foreach($Product as $product)
                         <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
+                        <a href="{{route('showProduct',$product->items->first()->id)}}">
+
                         <div class="pi-pic">
                             <img src="{{asset('/storage/'.$product->images->first()->url)}}" alt="">
-                            <div class="pi-links">
-                                <a href="{{route('showProduct',$product->items->first()->id)}}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
+
                         </div>
                         <div class="pi-text">
                             <h6>${{$product->price}}</h6>
                             <p>{{$product->name}}</p>
                         </div>
+                        </a>
                     </div>
                 </div>
                 @endforeach
