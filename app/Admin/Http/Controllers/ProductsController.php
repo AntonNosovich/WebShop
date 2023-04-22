@@ -2,10 +2,12 @@
 namespace App\Admin\Http\Controllers;
 
 use App\Admin\Actions\AdvertisingAction;
+use App\Admin\Actions\ItemAction;
 use App\Admin\Actions\ProductAction;
 use App\Http\Controllers\Frontend\Requests\UpdateProductRequest;
 use App\Models\Advertising;
 use App\Models\ClientMenu;
+use App\Models\Item;
 use App\Models\Product;
 use App\Http\Controllers\Frontend\Requests\ProductRequest;
 use Illuminate\Routing\Controller;
@@ -106,11 +108,15 @@ class ProductsController extends Controller{
         return view('frontend.product.category')->with(compact('category','products','size','minMax'));
     }
 
-    public function showProduct($id){
+    public function showProduct($id,ItemAction $action,ProductAction $actionProduct ){
+
+        $item = Item::find($id);
+        $sizes = $action->getSize($item);
+        $products = $actionProduct->getTopProducts();
 
 
-
-        return view('frontend.product.show');
+        return view('frontend.product.show')
+            ->with(compact('item','sizes','products'));
     }
 
 }
