@@ -22,4 +22,9 @@ class ItemAction
     {
         return $this->repository->create($request);
     }
+
+    public function getSize(Item $item){
+
+        return $this->repository->getSize($item);
+    }
 }

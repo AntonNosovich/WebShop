@@ -60,4 +60,19 @@ class ItemRepository
         }
         return $item;
     }
+
+    public function getSize(Item $item)
+    {
+       $product = $item->product;
+       $size = [];
+       foreach ($product->items as $exemplyar)
+        {
+            array_push($size,$exemplyar->size);
+
+        }
+        return array_unique($size);
+
+    }
+
+
 }

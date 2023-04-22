@@ -15,6 +15,7 @@ class Item extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
     public function advertising()
     {
         return $this->hasMany(Advertising::class,'item_id','id');
