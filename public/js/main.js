@@ -183,14 +183,19 @@ $(window).on('load', function() {
 		Quantity change
 	--------------------- */
     var proQty = $('.pro-qty');
-	proQty.prepend('<span class="dec qtybtn">-</span>');
+    var max = $('.pro-qty').data('max');
+    proQty.prepend('<span class="dec qtybtn">-</span>');
 	proQty.append('<span class="inc qtybtn">+</span>');
 	proQty.on('click', '.qtybtn', function () {
-		var $button = $(this);
+	    var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
 		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
+			if (oldValue<max) {
+                var newVal = parseFloat(oldValue) + 1;
+                     }
+			    else {newVal = oldValue}
+			}
+			else {
 			// Don't allow decrementing below zero
 			if (oldValue > 0) {
 				var newVal = parseFloat(oldValue) - 1;
